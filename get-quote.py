@@ -2,11 +2,11 @@ import random
 
 
 def main_function():
-    f = open("quotes.txt")
-    quotes = f.readlines()
-    f.close()
+    with open("quotes.txt") as fh:
+        quotes = [line.strip() for line in fh]
+
     rnd = random.randint(0, len(quotes) - 1)
-    print(quotes[-1])
+    print(quotes[rnd])
 
 
 if __name__ == "__main__":
